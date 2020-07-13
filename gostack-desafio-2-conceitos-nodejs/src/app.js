@@ -39,7 +39,7 @@ app.put("/repositories/:id", (request, response) => {
   const oldRepositorieIndex = repositories.findIndex(element => element.id === id);
 
   if(oldRepositorieIndex === -1) {
-    return response.status(404).json({
+    return response.status(400).json({
       success: false,
       message: "Repositório não encontrado"
     });
@@ -64,7 +64,7 @@ app.delete("/repositories/:id", (request, response) => {
   const repositorieIndex = repositories.findIndex(element => element.id === id);
 
   if(repositorieIndex === -1) {
-    return response.status(404).json({
+    return response.status(400).json({
       success: false,
       message: "Repositório não encontrado"
     });
@@ -81,7 +81,7 @@ app.post("/repositories/:id/like", (request, response) => {
   const repositorieIndex = repositories.findIndex(element => element.id === id);
 
   if(repositorieIndex === -1) {
-    return response.status(404).json({
+    return response.status(400).json({
       success: false,
       message: "Repositório não encontrado"
     });
